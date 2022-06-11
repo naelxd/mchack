@@ -1,0 +1,46 @@
+body, html {
+    font-family: 'Inter', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.info {
+    display:flex;
+    justify-content: space-between;
+}
+
+.info-text{
+    margin-left: 50px;
+}
+
+.info-columns {
+    margin-top: 25px;
+}
+
+.info-column {
+    margin-bottom: 30px;
+}
+
+.column__text {
+    display: inline;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.column__text-header {
+    font-weight: bold;
+}
+
+.info-column__cities * {
+    display: block;
+}
+
+.diag {
+    width: 500px;
+    height; 350px;
+    margin-right: 50px;
+}

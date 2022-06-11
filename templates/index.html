@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+    <title>Ad Analyser</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-text">Анализатор Рекламы</h1>
+    </header>
+    <div class="info">
+        <div class="info-text">
+            <button class="button">Анализ</button>
+            <div class="info-columns">
+                <div class="info-column">
+                    <p class="column__text column__text-header">Средний Возраст:</p>
+                    <p class="column__text">40</p>
+                </div>
+                <div class="info-column info-column__cities">
+                    <p class="column__text column__text-header column__text-cities">Топ городов:</p>
+                    {% for item in ['Уфа', 'Москва'] %}
+                    <p class="column__text">{{ item }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="diag">
+            <canvas id="diagramm"></canvas>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='scripts/diagramm.js') }}"></script>
+</body>
+</html>
