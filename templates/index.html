@@ -14,11 +14,15 @@
     </header>
     <div class="info">
         <div class="info-text">
-            <button class="button">Анализ</button>
+            <button id="button">Анализ</button>
             <div class="info-columns">
                 <div class="info-column">
                     <p class="column__text column__text-header">Средний Возраст:</p>
-                    <p class="column__text">40</p>
+                    <p class="column__text" id="age">{{ mean_age }}</p>
+                </div>
+                <div class="info-column">
+                    <p class="column__text column__text-header">Преобладающий пол:</p>
+                    <p class="column__text" id="gender">{{ mean_gender }}</p>
                 </div>
                 <div class="info-column info-column__cities">
                     <p class="column__text column__text-header column__text-cities">Топ городов:</p>
@@ -34,5 +38,6 @@
     </div>
 
     <script src="{{ url_for('static', path='scripts/diagramm.js') }}"></script>
+    <script src="{{ url_for('static', path='scripts/main.js') }}"></script>
 </body>
 </html>
