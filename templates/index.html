@@ -6,38 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <title>Ad Analyser</title>
 </head>
 <body>
     <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', path='images/logo.png') }}">
+        </div>
         <h1 class="header-text">Анализатор Рекламы</h1>
     </header>
     <div class="info">
         <div class="info-text">
-            <button id="button">Анализ</button>
             <div class="info-columns">
                 <div class="info-column">
                     <p class="column__text column__text-header">Средний Возраст:</p>
                     <p class="column__text" id="age">{{ mean_age }}</p>
                 </div>
-                <div class="info-column">
+                <div class="info-column info-column__block">
                     <p class="column__text column__text-header">Преобладающий пол:</p>
-                    <p class="column__text" id="gender">{{ mean_gender }}</p>
+                    {% for key, value in mean_gender.items() %}
+                    <p class="column__text">{{ key }} - {{ value }} человек</p>
+                    {% endfor %}
                 </div>
-                <div class="info-column info-column__cities">
-                    <p class="column__text column__text-header column__text-cities">Топ городов:</p>
-                    {% for item in ['Уфа', 'Москва'] %}
-                    <p class="column__text">{{ item }}</p>
+                <div class="info-column info-column__block">
+                    <p class="column__text column__text-header">Топ городов:</p>
+                    {% for key, value in cities.items() %}
+                    <p class="column__text">{{ key }} - {{ value }} человек</p>
                     {% endfor %}
                 </div>
             </div>
         </div>
-        <div class="diag">
-            <canvas id="diagramm"></canvas>
+        <div class="visual_information">
+            <div class="diagramm pie_diagramm">
+                <canvas id="pie-diagramm-gender"></canvas>
+            </div>
+            <div class="line-diagramm">
+                <div class="diagramm pie_diagramm-half">
+                    <canvas id="pie-diagramm-cities"></canvas>
+                </div>
+                <div class="diagramm">
+                    <canvas id="line-diagramm"></canvas>
+                </div>
+                <form action="main.js" class="years" method="post">
+                    <select name="Выбрать год" id="select">
+                        {% for year in years %}
+                        <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Выбрать" class="button">
+                </form>
+            </div>
         </div>
     </div>
 
     <script src="{{ url_for('static', path='scripts/diagramm.js') }}"></script>
-    <script src="{{ url_for('static', path='scripts/main.js') }}"></script>
 </body>
 </html>

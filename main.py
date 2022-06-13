@@ -16,15 +16,18 @@ templates = Jinja2Templates(directory='templates')
 async def main(request: Request):
     return templates.TemplateResponse('index.html', {"request": request,
                                                      'mean_age': int(analyser.mean_age()),
-                                                     'mean_gender': analyser.mean_gender()})
+                                                     'mean_gender': analyser.mean_gender(),
+                                                     'cities': analyser.popular_cities(),
+                                                     'years': analyser.ad_analytics().keys()})
 
 
-# @app.post('/analyse')
-# async def analyse():
-#     # return Response(
-#     #     json.dumps({
-#     #         'mean_age': int(analyser.mean_age())
-#     #     }),
-#     #     media_type='application/json'
-#     # )
-#     # return templates.TemplateResponse('in')
+@app.post('/analyse')
+async def analyse():
+    return Response(
+        json.dumps({
+            'ad_analytics': analyser.ad_analytics(),
+            'gender': [analyser.mean_gender()['М'], analyser.mean_gender()['Ж']],
+            'cities': analyser.popular_cities()
+        }),
+        media_type='application/json'
+    )

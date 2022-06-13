@@ -1,11 +1,28 @@
 body, html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    background-color: #223542;
+    color: #2B506E;
+    margin: 0;
 }
 
 .header {
     display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 80px;
+    background-color: #C0CFD6;
+}
+
+.logo {
+    margin-left: 20px
+}
+
+.logo img{
+    height:50px;
+}
+
+.header-text{
+    margin-left: 70px;
 }
 
 .info {
@@ -14,7 +31,7 @@ body, html {
 }
 
 .info-text{
-    margin-left: 50px;
+    margin-left: 70px;
 }
 
 .info-columns {
@@ -23,6 +40,9 @@ body, html {
 
 .info-column {
     margin-bottom: 30px;
+    background-color: #E9E4EA;
+    border-radius: 10px;
+    padding: 10px 15px;
 }
 
 .column__text {
@@ -35,12 +55,68 @@ body, html {
     font-weight: bold;
 }
 
-.info-column__cities * {
+.info-column__block * {
     display: block;
 }
 
-.diag {
+.visual_information {
+    margin-right: 100px;
+    display: flex;
+}
+
+.diagramm {
     width: 500px;
     height; 350px;
-    margin-right: 50px;
+    margin-bottom: 10px;
+    background-color: #E9E4EA;
+    border-radius: 10px;
+}
+
+.pie_diagramm {
+    margin-right: 30px;
+    width: 400px;
+    height: 400px;
+}
+
+.pie_diagramm-half {
+    width: 400px;
+    height: 400px;
+    margin-bottom: 10px;
+}
+
+.line-diagramm {
+    display: flex:
+    align-items: column;
+    justify-content: center;
+}
+
+.years {
+    display: flex;
+    justify-content: right;
+}
+
+#select {
+    width: 75px;
+    height: 25px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    color: #2B506E;
+    background-color: #E9E4EA;
+    border-radius: 10px;
+}
+
+
+.button {
+    border: 0;
+    padding: 5px 10px;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 10px;
+    margin-left: 10px;
+    color: #2B506E;
+    background-color: #E9E4EA;
+}
+
+.button:hover {
+    background-color: #C0CFD6;
+    transition: 0.2s;
 }
